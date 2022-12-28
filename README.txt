@@ -1,0 +1,24 @@
+=== GP Shortcuts ===
+Contributors: alvindcaesar
+Donate link: https://alvindcaesar.com
+Tags: generatepress, generateblocks
+Requires at least: 5.0.0
+Tested up to: 6.1.1
+Stable tag: 1.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Adds a menu to the admin bar to easily jump straight into GeneratePress and GenerateBlocks menus and settings. Save all the clicks!
+
+== Description ==
+
+This plugin adds a handy "GP Shortcuts" menu item in the WP admin bar for quickly navigating to various areas within the site as well as to external sites relevant for the users of GeneratePress and GenerateBlocks.
+
+== Installation ==
+
+Ensure you have GeneratePress theme installed and active.
+
+== Changelog ==
+
+= 1.0.0 =
+* Initial Release.
