@@ -20,37 +20,20 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+if ( ! defined( "WPINC" ) ) die;
 
 // Make sure GeneratePress or GeneratePress Child is activated before proceeding.
-if (("generatepress" != get_option("template")) or 
-("generatepress_child" != get_option("stylesheet") and "generatepress" != get_option("stylesheet"))) return;
+if ( ( "generatepress" != get_option( "template" ) ) or 
+( "generatepress_child" != get_option( "stylesheet" ) and "generatepress" != get_option( "stylesheet" ) ) ) return;
 
-function my_custom_admin_bar_menu() {
-  global $wp_admin_bar;
-  $wp_admin_bar->remove_menu('gp_elements-menu');
-}
 
-add_action('wp_before_admin_bar_render', 'my_custom_admin_bar_menu');
+define( "GP_SHORTCUTS_URL", plugin_dir_url( __FILE__ ) );
+define( "GP_SHORTCUTS_PATH", plugin_dir_path( __FILE__ ) );
 
-add_action( "admin_bar_menu", "gp_jumper_admin_menu", 999 );
-
-function gp_jumper_admin_menu( WP_Admin_Bar $wp_admin_bar )
+function gp_shortcuts_init()
 {
-	$iconurl = plugin_dir_url( __FILE__ ) . 'assets/images/gp-logo.png';
-
-	$iconspan = '<span class="gp-ab-icon" style="
-    float:left; width:22px !important; height:22px !important;
-    margin-left: 5px !important; margin-top: 5px !important;
-    background-image:url(\'' . $iconurl . '\')!important;background-size: contain;background-repeat: no-repeat;"></span>';
-
-	$wp_admin_bar->add_node(
-		array(
-			'id'    => 'gp-shortcuts-main',
-			'title' => $iconspan . __( 'GP Shortcuts', 'gp-shortcuts' ),
-			'href'  => admin_url( 'customize.php?return=%2Fwp-admin%2Fthemes.php%3Fpage%3Dgenerate-options' ),
-		)
-	);
+	require_once( GP_SHORTCUTS_PATH . "includes/class-gp-shorcuts-init.php" );
+	new GP_Shortcuts_Init();
 }
+
+add_action( "plugins_loaded", "gp_shortcuts_init" );
