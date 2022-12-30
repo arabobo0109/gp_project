@@ -6,9 +6,7 @@ class GP_Shortcuts_Init
   {
     $this->includes();
 
-    return array(
-      GP_Shortcuts::init()
-    );
+    return GP_Shortcuts::init();
   }
 
   public function includes()
