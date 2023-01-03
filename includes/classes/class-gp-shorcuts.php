@@ -19,6 +19,7 @@ class GP_Shortcuts
       GP_Free_Menu::layout(),
 
       GP_Pro_Menu::elements_menu(),
+      GP_Pro_Menu::add_elements_menu(),
       GP_Pro_Menu::block(),
       GP_Pro_Menu::hook(),
       GP_Pro_Menu::layout(),
@@ -45,16 +46,17 @@ class GP_Shortcuts
     );
 
     if ( ! class_exists( "GenerateBlocks_Settings" ) ) {
-      unset( $args[15] ); // GP_Generateblocks_Menu::main_menu()
+      unset( $args[16] ); // GP_Generateblocks_Menu::main_menu()
     }
 
     if ( ! class_exists( "GenerateBlocks_Pro_Singleton" ) ) {
-      unset( $args[18] ); // GP_Generateblocks_Menu::global_styles_menu()
-      unset( $args[19] ); // GP_Generateblocks_Menu::assets_library_menu()
+      unset( $args[19] ); // GP_Generateblocks_Menu::global_styles_menu()
+      unset( $args[20] ); // GP_Generateblocks_Menu::assets_library_menu()
     }
 
     if ( ! post_type_exists( "gp_elements" ) ) {
       unset( $args[7] ); // GP_Pro_Menu::elements_menu()
+      unset( $args[8] ); // GP_Pro_Menu::add_elements_menu()
     } else {
       // Remove the default 'Element' bar menu added by GeneratePress when Elements module is active.
       add_action( "wp_before_admin_bar_render", function() {
