@@ -2,23 +2,13 @@
 
 class GP_Pro_Menu
 {
-  public static function elements_menu()
-  {
-    return array(
-      'parent'=> 'gp-shortcuts-generatepress',
-      'id'    => 'gp-shortcuts-elements-menu',
-      'title' => __( 'Elements', 'gp-shortcuts' ),
-      'href'  => admin_url( "edit.php?post_type=gp_elements" ),
-    );
-  }
-
   public static function add_elements_menu()
   {
     return array(
       'parent'=> 'gp-shortcuts-generatepress',
       'id'    => 'gp-shortcuts-add-elements-menu',
       'title' => __( 'Add New Elements', 'gp-shortcuts' ),
-      'href'  => '#',
+      'href'  => admin_url( "edit.php?post_type=gp_elements" ),
     );
   }
 
