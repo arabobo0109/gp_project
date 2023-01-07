@@ -10,7 +10,7 @@
  * Plugin Name:       Shortcuts for GeneratePress
  * Plugin URI:        https://github.com/alvindcaesar/gp-shortcuts
  * Description:       Adds a menu to the admin bar to easily jump straight into GeneratePress and GenerateBlocks menus and settings.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Alvind Caesar
  * Author URI:        https://alvindcaesar.com
  * License:           GPL-2.0+
@@ -23,8 +23,7 @@
 if ( ! defined( "WPINC" ) ) die;
 
 // Make sure GeneratePress or GeneratePress Child is activated before proceeding.
-if ( ( "generatepress" != get_option( "template" ) ) or 
-( "generatepress_child" != get_option( "stylesheet" ) and "generatepress" != get_option( "stylesheet" ) ) ) return;
+if ( "generatepress" != ( wp_get_theme() )->get_template() ) return;
 
 
 define( "GP_SHORTCUTS_URL", plugin_dir_url( __FILE__ ) );
